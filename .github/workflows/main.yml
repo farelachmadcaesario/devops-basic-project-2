@@ -10,12 +10,18 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: clean old container
+      - name: clean old container & free port 8080
         run: |
           docker stop web-portofolio-app || true
           docker rm web-portofolio-app || true
+
+          CONTAINER_ON_PORT=$(docker ps -q --filter "publish=8080" || true)
+          if [-n $CONTAINER_ON_PORT]; then
+            docker stop $CONTAINER_ON_PORT || true
+            docker rm $CONTAINER_ON_PORT || true
+          fi
 
       - name: Build docker image
         run: |
