@@ -8,19 +8,19 @@ jobs:
   deploy:
     runs-on: self-hosted
 
-steps:
-  - name: Checkout repository
-    uses: actions/checkout@v3
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-  - name: clean old container
-    run: |
-      docker stop web-portofolio-app || true
-      docker rm web-portofolio-app || true
+      - name: clean old container
+        run: |
+          docker stop web-portofolio-app || true
+          docker rm web-portofolio-app || true
 
-  - name: Build docker image
-    run: |
-      docker build -t web-portofolio:latest .
+      - name: Build docker image
+        run: |
+          docker build -t web-portofolio:latest .
 
-  - name: Run docker container
-    run: |
-      docker run -d --name web-portofolio-app -p 8080:80 web-portofolio:latest
+      - name: Run docker container
+        run: |
+          docker run -d --name web-portofolio-app -p 8080:80 web-portofolio:latest
