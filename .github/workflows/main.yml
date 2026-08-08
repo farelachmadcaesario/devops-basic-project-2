@@ -12,10 +12,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Stop Old Service
+      - name: Clean & Stop Old Service
         run: |
-          docker compose down || true
+          docker compose down --remove-orphans || docker compose down --remove-orphans || true
 
       - name: Build and Start Multi-Container App
         run: |
-          docker compose up -d --build --force-recreate
+          docker compose up -d --build --force-recreate || docker compose up -d --build --force-recreate
