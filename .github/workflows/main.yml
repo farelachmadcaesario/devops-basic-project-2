@@ -12,21 +12,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: clean old container & free port 8080
+      - name: Stop Old Service
         run: |
-          docker stop web-portofolio-app || true
-          docker rm web-portofolio-app || true
+          docker compose down || true
 
-          CONTAINER_ON_PORT=$(docker ps -q --filter "publish=8080" || true)
-          if [-n $CONTAINER_ON_PORT]; then
-            docker stop $CONTAINER_ON_PORT || true
-            docker rm $CONTAINER_ON_PORT || true
-          fi
-
-      - name: Build docker image
+      - name: Build and Start Multi-Container App
         run: |
-          docker build -t web-portofolio:latest .
-
-      - name: Run docker container
-        run: |
-          docker run -d --name web-portofolio-app -p 8080:80 web-portofolio:latest
+          docker compose up -d --build --force-recreate
