@@ -1,18 +1,355 @@
 <!doctype html>
-<html lang="en">
+
+<html class="light" lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DevOps Project 2</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Environment - Lumina</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-primary": "#aac7ff",
+              "ink-muted-48": "#7a7a7a",
+              "secondary-fixed-dim": "#c8c6c8",
+              "on-error": "#ffffff",
+              "on-background": "#191c22",
+              "secondary-fixed": "#e4e2e4",
+              "on-tertiary-fixed": "#341100",
+              "divider-soft": "#f0f0f0",
+              outline: "#727784",
+              "surface-tile-1": "#272729",
+              "surface-tint": "#005cba",
+              "surface-pearl": "#fafafc",
+              "surface-chip-translucent": "#d2d2d7",
+              primary: "#004e9f",
+              "on-primary-fixed": "#001b3e",
+              "on-surface": "#191c22",
+              background: "#f9f9ff",
+              "body-muted": "#cccccc",
+              surface: "#f9f9ff",
+              "tertiary-fixed": "#ffdbcb",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#f2f3fc",
+              "primary-fixed": "#d7e3ff",
+              "on-secondary": "#ffffff",
+              "on-secondary-container": "#636264",
+              "surface-container-highest": "#e1e2eb",
+              "tertiary-fixed-dim": "#ffb692",
+              "on-primary-fixed-variant": "#00458e",
+              "primary-on-dark": "#2997ff",
+              "inverse-surface": "#2e3037",
+              "inverse-on-surface": "#eff0f9",
+              "surface-tile-3": "#252527",
+              "surface-variant": "#e1e2eb",
+              tertiary: "#883700",
+              "on-error-container": "#93000a",
+              "ink-muted-80": "#333333",
+              "secondary-container": "#e2dfe1",
+              "on-tertiary-container": "#ffe3d6",
+              "surface-container-high": "#e6e8f1",
+              "surface-bright": "#f9f9ff",
+              "outline-variant": "#c1c6d5",
+              "canvas-parchment": "#f5f5f7",
+              secondary: "#5f5e60",
+              "tertiary-container": "#af4900",
+              "on-surface-variant": "#414753",
+              "surface-container": "#ecedf6",
+              "on-tertiary-fixed-variant": "#793000",
+              "on-secondary-fixed": "#1b1b1d",
+              "on-primary-container": "#dfe8ff",
+              "on-primary": "#ffffff",
+              "primary-fixed-dim": "#aac7ff",
+              "on-tertiary": "#ffffff",
+              "surface-black": "#000000",
+              "surface-dim": "#d8d9e2",
+              "primary-container": "#0066cc",
+              "surface-tile-2": "#2a2a2c",
+              "on-secondary-fixed-variant": "#474649",
+              hairline: "#e0e0e0",
+              "error-container": "#ffdad6",
+              "primary-focus": "#0071e3",
+              error: "#ba1a1a",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              margin: "24px",
+              xl: "32px",
+              xxl: "48px",
+              sm: "12px",
+              xs: "8px",
+              section: "80px",
+              gutter: "16px",
+              lg: "24px",
+              xxs: "4px",
+              md: "17px",
+            },
+            fontFamily: {
+              "display-md": [
+                '"SF Pro Text", system-ui, -apple-system, sans-serif',
+              ],
+              body: ['"SF Pro Text", system-ui, -apple-system, sans-serif'],
+              "micro-legal": [
+                '"SF Pro Text", system-ui, -apple-system, sans-serif',
+              ],
+              "body-strong": [
+                '"SF Pro Text", system-ui, -apple-system, sans-serif',
+              ],
+              "nav-link": [
+                '"SF Pro Text", system-ui, -apple-system, sans-serif',
+              ],
+              caption: ['"SF Pro Text", system-ui, -apple-system, sans-serif'],
+              "button-utility": [
+                '"SF Pro Text", system-ui, -apple-system, sans-serif',
+              ],
+              tagline: [
+                '"SF Pro Display", system-ui, -apple-system, sans-serif',
+              ],
+              lead: ['"SF Pro Display", system-ui, -apple-system, sans-serif'],
+              "lead-airy": [
+                '"SF Pro Text", system-ui, -apple-system, sans-serif',
+              ],
+              "display-lg": [
+                '"SF Pro Display", system-ui, -apple-system, sans-serif',
+              ],
+              "caption-strong": [
+                '"SF Pro Text", system-ui, -apple-system, sans-serif',
+              ],
+              "fine-print": [
+                '"SF Pro Text", system-ui, -apple-system, sans-serif',
+              ],
+              "dense-link": [
+                '"SF Pro Text", system-ui, -apple-system, sans-serif',
+              ],
+              "hero-display": [
+                '"SF Pro Display", system-ui, -apple-system, sans-serif',
+              ],
+              "button-large": [
+                '"SF Pro Text", system-ui, -apple-system, sans-serif',
+              ],
+              "display-lg-mobile": ["inter"],
+            },
+            fontSize: {
+              "display-md": [
+                "34px",
+                {
+                  lineHeight: "1.47",
+                  letterSpacing: "-0.374px",
+                  fontWeight: "600",
+                },
+              ],
+              body: [
+                "17px",
+                {
+                  lineHeight: "1.47",
+                  letterSpacing: "-0.374px",
+                  fontWeight: "400",
+                },
+              ],
+              "micro-legal": [
+                "10px",
+                {
+                  lineHeight: "1.3",
+                  letterSpacing: "-0.08px",
+                  fontWeight: "400",
+                },
+              ],
+              "body-strong": [
+                "17px",
+                {
+                  lineHeight: "1.24",
+                  letterSpacing: "-0.374px",
+                  fontWeight: "600",
+                },
+              ],
+              "nav-link": [
+                "12px",
+                {
+                  lineHeight: "1.0",
+                  letterSpacing: "-0.12px",
+                  fontWeight: "400",
+                },
+              ],
+              caption: [
+                "14px",
+                {
+                  lineHeight: "1.43",
+                  letterSpacing: "-0.224px",
+                  fontWeight: "400",
+                },
+              ],
+              "button-utility": [
+                "14px",
+                {
+                  lineHeight: "1.29",
+                  letterSpacing: "-0.224px",
+                  fontWeight: "400",
+                },
+              ],
+              tagline: [
+                "21px",
+                {
+                  lineHeight: "1.19",
+                  letterSpacing: "0.231px",
+                  fontWeight: "600",
+                },
+              ],
+              lead: [
+                "28px",
+                {
+                  lineHeight: "1.14",
+                  letterSpacing: "0.196px",
+                  fontWeight: "400",
+                },
+              ],
+              "lead-airy": ["24px", { lineHeight: "1.5", fontWeight: "300" }],
+              "display-lg": ["40px", { lineHeight: "1.1", fontWeight: "600" }],
+              "caption-strong": [
+                "14px",
+                {
+                  lineHeight: "1.29",
+                  letterSpacing: "-0.224px",
+                  fontWeight: "600",
+                },
+              ],
+              "fine-print": [
+                "12px",
+                {
+                  lineHeight: "1.0",
+                  letterSpacing: "-0.12px",
+                  fontWeight: "400",
+                },
+              ],
+              "dense-link": ["17px", { lineHeight: "2.41", fontWeight: "400" }],
+              "hero-display": [
+                "56px",
+                {
+                  lineHeight: "1.07",
+                  letterSpacing: "-0.28px",
+                  fontWeight: "600",
+                },
+              ],
+              "button-large": [
+                "18px",
+                { lineHeight: "1.0", fontWeight: "300" },
+              ],
+              "display-lg-mobile": [
+                "32px",
+                { lineHeight: "1.1", letterSpacing: "0px", fontWeight: "600" },
+              ],
+            },
+          },
+        },
+      };
+    </script>
   </head>
-  <body>
-    <h1>Portofolio DevOps</h1>
-
-    <h3>ini sudah auto deploy ke server</h3>
-
-    <h5>
-      Halo, ini uji coba sistem CI/CD! Arsitektur web statis berjalan di atas
-      Docker dan Nginx.
-    </h5>
+  <body class="bg-background text-on-surface antialiased">
+    <!-- TopNavBar (Global) -->
+    <nav
+      class="bg-surface-black dark:bg-surface-black text-on-primary dark:text-on-primary font-nav-link text-nav-link docked full-width top-0 h-[84px] flat no shadows fixed top-0 w-full z-[100] flex justify-between items-center px-margin h-[44px]"
+    >
+      <div class="font-tagline text-tagline text-on-primary">
+        DevOps Project by Farel Achmad Caesario
+      </div>
+    </nav>
+    <!-- Main Content -->
+    <main class="pt-[44px]">
+      <!-- Hero Section -->
+      <section
+        class="relative w-full h-screen min-h-[600px] flex items-center justify-center bg-surface-black overflow-hidden"
+      >
+        <div class="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="DevOps Project Background"
+            class="w-full h-full object-cover opacity-70"
+          />
+        </div>
+        <div class="relative z-10 text-center px-margin max-w-4xl">
+          <h1 class="font-hero-display text-hero-display text-on-primary mb-xl">
+            This Is My DevOps Project
+          </h1>
+          <p
+            class="font-lead-airy text-lead-airy text-on-primary/90 max-w-2xl mx-auto"
+          >
+            A DevOps Engineer is an IT professional who acts as a bridge between
+            the software development team and the IT operations team. Their main
+            responsibilities are to automate workflows, speed up application
+            releases, and ensure the reliability and scalability of the system
+            infrastructure
+          </p>
+        </div>
+      </section>
+      <!-- Editorial Content 1 -->
+      <section class="py-section px-margin bg-surface-pearl">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="font-display-md text-display-md text-on-surface mb-lg">
+            Main Responsibilities as a DevOps Engineer
+          </h2>
+          <p class="font-body text-body text-on-surface-variant mb-lg">
+            Building and managing a CI/CD (Continuous Integration / Continuous
+            Deployment) pipeline. Implementing the Infrastructure as Code (IaC)
+            concept to manage servers. Carrying out containerisation and system
+            orchestration. Monitoring system performance and troubleshooting
+            issues.
+          </p>
+        </div>
+      </section>
+      <!-- Environment Quote Card Component (Conceptual interpretation) -->
+      <section class="py-section px-margin bg-surface-tile-1">
+        <div
+          class="max-w-4xl mx-auto bg-surface-tile-2 rounded-xl p-xl md:p-xxl flex flex-col items-center text-center shadow-2xl"
+        >
+          <blockquote
+            class="font-display-lg text-display-lg text-inverse-on-surface mb-lg"
+          >
+            "A DevOps engineer is a strategic role that ensures the companys
+            innovation engine can operate at high speed, whilst remaining stable
+            and secure."
+          </blockquote>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="bg-canvas-parchment dark:bg-surface-tile-3 text-on-surface dark:text-inverse-on-surface font-fine-print text-fine-print full-width relative border-t border-hairline dark:border-outline flat no shadows w-full py-xxl px-margin max-w-7xl mx-auto flex flex-col gap-lg"
+    >
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-lg mb-xl">
+        <!-- Dense Link Columns -->
+        <div class="flex flex-col gap-sm"></div>
+        <div class="flex flex-col gap-sm"></div>
+      </div>
+      <div
+        class="border-t border-hairline pt-lg flex flex-col md:flex-row justify-between items-center gap-sm"
+      >
+        <div class="font-tagline text-tagline text-on-surface">
+          DevOps Project by Farel Achmad Caesario
+        </div>
+        <div class="flex gap-md flex-wrap justify-center"></div>
+        <div class="text-on-surface-variant">
+          Copyright © 2026 Farel Achmad Caesario. All rights reserved.
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
